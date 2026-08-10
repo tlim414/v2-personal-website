@@ -142,7 +142,7 @@ export default function App() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              alignItems: "flex-start",
+              alignItems: "center",
               gap: 2,
             }}
           >
