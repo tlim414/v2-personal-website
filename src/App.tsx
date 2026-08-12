@@ -292,11 +292,21 @@ export default function App() {
             }}
             aria-label="About me"
           >
-            {ABOUT.map((para, idx) => (
-              <Typography key={idx} variant='body1' sx={{ color: 'text.primary' }}>
-                {para}
-              </Typography>
-            ))}
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                gap: 2,
+              }}
+            >
+              {ABOUT.map((para, idx) => (
+                <Typography key={idx} variant='body1' sx={{ color: 'text.secondary' }}>
+                  {para}
+                </Typography>
+              ))}
+            </Box>
           </Box>
 
           {/* Experience Section */}
@@ -337,40 +347,57 @@ export default function App() {
                         alignItems: 'flex-start',
                         gap: 1
                       }}>
-                      {/* Experience Card Header - containing title and button to external link */}
+                      {/* Experience Card Header - containing title, link and period */}
                       <Box
                         sx={{
+                          width: '100%',
                           display: 'flex',
                           flexDirection: 'row',
-                          justifyContent: 'center',
+                          justifyContent: 'space-between',
                           alignItems: 'center',
-                        }}>
-                        <Typography variant="h5" sx={{ color: 'text.primary' }}>
-                          {exp.company}
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                          }}>
+                          <Typography variant="h5" sx={{ color: 'text.primary' }}>
+                            {exp.company}
+                          </Typography>
+                          <IconButton
+                            href={exp.link}
+                            target='_blank'
+                            aria-label='Live link'>
+                            <OpenInNewIcon
+                              sx={{
+                                '&:hover': {
+                                  color: 'primary.main',
+                                }
+                              }}
+                            />
+                          </IconButton>
+                        </Box>
+                        <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
+                          {exp.period}
                         </Typography>
-                        <IconButton
-                          href={exp.link}
-                          target='_blank'
-                          aria-label='Live link'>
-                          <OpenInNewIcon
-                            sx={{
-                              '&:hover': {
-                                color: 'primary.main',
-                              }
-                            }}
-                          />
-                        </IconButton>
                       </Box>
                       <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
                         {exp.role}
                       </Typography>
-                      <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
-                        {exp.period}
-                      </Typography>
                     </Box>
                     {/* Experience Description */}
                     {exp.description.map((desc, idx) => (
-                      <Typography key={idx} variant="body1" sx={{ mt: 1 }}>
+                      <Typography
+                        key={idx}
+                        variant="body1"
+                        sx={{
+                          mt: 1,
+                          color: 'text.secondary',
+                        }}
+                      >
                         {desc}
                       </Typography>
                     ))}
@@ -427,7 +454,7 @@ export default function App() {
                         display: 'flex',
                         flexDirection: 'row',
                         justifyContent: 'space-between',
-                        alignItems: 'center',
+                        alignItems: 'flex-start',
                         gap: 1
                       }}
                     >
@@ -474,7 +501,14 @@ export default function App() {
                     </Box>
                     {/* Project Description */}
                     {proj.description.map((desc, idx) => (
-                      <Typography key={idx} variant="body1" sx={{ mt: 1 }}>
+                      <Typography
+                        key={idx}
+                        variant="body1"
+                        sx={{
+                          mt: 1,
+                          color: 'text.secondary',
+                        }}
+                      >
                         {desc}
                       </Typography>
                     ))}
