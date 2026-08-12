@@ -23,7 +23,7 @@ import {
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import PublicIcon from '@mui/icons-material/Public';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 // Constants
 import { EXPERIENCES } from './constants/Experiences';
@@ -134,6 +134,7 @@ export default function App() {
             justifyContent: 'space-between',
             py: { xs: 6, md: 10, lg: 12 },
             boxSizing: 'border-box',
+            gap: 2,
           }}
         >
           {/* Top Section */}
@@ -312,12 +313,54 @@ export default function App() {
             </Typography>
             <Stack spacing={3}>
               {EXPERIENCES.map((exp, idx) => (
-                <Card key={idx}>
+                <Card
+                  key={idx}
+                  sx={{
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'pointer',
+                    border: '1px solid transparent',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: (theme) =>
+                        theme.palette.mode === 'dark'
+                          ? '0 10px 20px -10px rgba(0, 0, 0, 0.5)'
+                          : '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                      borderColor: 'primary.main',
+                    },
+                  }}>
                   <CardContent>
-                    <Box>
-                      <Typography variant="h5" sx={{ color: 'text.primary' }}>
-                        {exp.company}
-                      </Typography>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'flex-start',
+                        gap: 1
+                      }}>
+                      {/* Experience Card Header - containing title and button to external link */}
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                        }}>
+                        <Typography variant="h5" sx={{ color: 'text.primary' }}>
+                          {exp.company}
+                        </Typography>
+                        <IconButton
+                          href={exp.link}
+                          target='_blank'
+                          aria-label='Live link'>
+                          <OpenInNewIcon
+                            sx={{
+                              '&:hover': {
+                                color: 'primary.main',
+                              }
+                            }}
+                          />
+                        </IconButton>
+                      </Box>
                       <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
                         {exp.role}
                       </Typography>
@@ -325,11 +368,13 @@ export default function App() {
                         {exp.period}
                       </Typography>
                     </Box>
+                    {/* Experience Description */}
                     {exp.description.map((desc, idx) => (
                       <Typography key={idx} variant="body1" sx={{ mt: 1 }}>
                         {desc}
                       </Typography>
                     ))}
+                    {/* List of pills for skills related to experience */}
                     <Stack
                       direction="row"
                       spacing={1}
@@ -360,24 +405,61 @@ export default function App() {
             </Typography>
             <Stack spacing={3}>
               {PROJECTS.map((proj, idx) => (
-                <Card key={idx}>
+                <Card
+                  key={idx}
+                  sx={{
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'pointer',
+                    border: '1px solid transparent',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: (theme) =>
+                        theme.palette.mode === 'dark'
+                          ? '0 10px 20px -10px rgba(0, 0, 0, 0.5)'
+                          : '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                      borderColor: 'primary.main',
+                    },
+                  }}>
                   <CardContent>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      <Typography variant="h5" sx={{ color: 'text.primary', flexGrow: 1 }}>
-                        {proj.title}
-                      </Typography>
-                      {proj.liveLink &&
-                        <IconButton
-                          href={proj.liveLink}
-                          target="_blank"
-                          aria-label='Live Link'>
-                          <PublicIcon
-                            sx={{
-                              '&:hover': {
-                                color: 'primary.main',
-                              }
-                            }} />
-                        </IconButton>}
+                    {/* Card Header - containing title, buttons to external links */}
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        gap: 1
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <Typography
+                          variant="h5"
+                          sx={{ color: 'text.primary', flexGrow: 1 }}
+                        >
+                          {proj.title}
+                        </Typography>
+                        {proj.liveLink &&
+                          <IconButton
+                            href={proj.liveLink}
+                            target='_blank'
+                            aria-label='Live link'>
+                            <OpenInNewIcon
+                              sx={{
+                                '&:hover': {
+                                  color: 'primary.main',
+                                }
+                              }}
+                            />
+                          </IconButton>
+                        }
+                      </Box>
                       <IconButton
                         href={proj.githubLink}
                         target="_blank"
@@ -390,11 +472,13 @@ export default function App() {
                           }} />
                       </IconButton>
                     </Box>
+                    {/* Project Description */}
                     {proj.description.map((desc, idx) => (
                       <Typography key={idx} variant="body1" sx={{ mt: 1 }}>
                         {desc}
                       </Typography>
                     ))}
+                    {/* Pills of skills related to project */}
                     <Stack
                       direction="row"
                       spacing={1}
