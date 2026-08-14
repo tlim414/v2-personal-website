@@ -1,14 +1,7 @@
 export const ABOUT = [
-    'Hi! I\'m a software developer passionate about building accessible, high-performance web applications and intuitive user interfaces. I take pride in my attention to detail, strong ownership, and ability to tackle complex problems. For me, the most rewarding part of software engineering is creating products that deliver real value to users. I embrace learning as an ongoing process and approach unfamiliar domain concepts with curiosity and confidence.',
-    'Throughout my career, I\'ve engineered solutions across diverse domains. At a fast-paced startup with an evolving codebase, I collaborated closely with cross-functional team members to stabilize architecture, refine code quality, and ship high-impact features. At Seequent, I plunged into the intersection of software and geophysics, learning how geoscientists interact with complex data to build tools tailored to their domain needs. Diving deep into unfamiliar technical domains excites me and makes me a more versatile engineer.',
-    'My technical journey began the day I got my first computer—taking apart PC cases, troubleshooting hardware issues, and eventually building my own custom rig. That hands-on curiosity quickly evolved into software development, starting with a 2D side-scroller game built in Turing, which inspired me to pursue my Computer Science degree.',
-    'I\'m currently seeking new opportunities where I can tackle challenging engineering problems, contribute to impactful products, and continue growing alongside a collaborative team.',
-    'When I\'m not coding I enjoy spending time with my loved ones and unwinding by playing video games on my spare time.'
-]
-
-
-
-
-
-
-
+  "Hi! I'm a software developer passionate about building accessible, high-performance web applications and intuitive user interfaces. I take pride in my attention to detail, strong ownership, and ability to tackle complex problems. For me, the most rewarding part of software engineering is creating products that deliver real value to users. I embrace learning as an ongoing process and approach unfamiliar domain concepts with curiosity and confidence.",
+  "Throughout my career, I've engineered solutions across diverse domains. At a fast-paced startup with an evolving codebase, I collaborated closely with cross-functional team members to stabilize architecture, refine code quality, and ship high-impact features. At Seequent, I plunged into the intersection of software and geophysics, learning how geoscientists interact with complex data to build tools tailored to their domain needs. Diving deep into unfamiliar technical domains excites me and makes me a more versatile engineer.",
+  'My technical journey began the day I got my first computer—taking apart PC cases, troubleshooting hardware issues, and eventually building my own custom rig. That hands-on curiosity quickly evolved into software development, starting with a 2D side-scroller game built in Turing, which inspired me to pursue my Computer Science degree.',
+  "I'm currently seeking new opportunities where I can tackle challenging engineering problems, contribute to impactful products, and continue growing alongside a collaborative team.",
+  "When I'm not coding I enjoy spending time with my loved ones and unwinding by playing video games on my spare time.",
+];

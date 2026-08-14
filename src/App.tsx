@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useRef, useState } from 'react';
 
 // Avatar
-import avatar from "./assets/avatar.png";
+import avatar from './assets/avatar.png';
 // MUI
 import {
   Box,
@@ -17,7 +17,7 @@ import {
   TextField,
   Typography,
   useColorScheme,
-  useMediaQuery
+  useMediaQuery,
 } from '@mui/material';
 // MUI Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -38,12 +38,11 @@ const NAV_ITEMS = [
   { id: 'education', label: 'Education' },
 ];
 
-
 const THEME_OPTIONS = [
   { value: 'system', label: 'System' },
   { value: 'light', label: 'Light' },
   { value: 'dark', label: 'Dark' },
-] as const
+] as const;
 type ThemeMode = (typeof THEME_OPTIONS)[number]['value'];
 
 export default function App() {
@@ -140,10 +139,10 @@ export default function App() {
           {/* Top Section */}
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
               gap: 2,
             }}
           >
@@ -158,9 +157,9 @@ export default function App() {
             <Box
               sx={{
                 minWidth: 256,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 alignItems: 'center',
               }}
             >
@@ -177,8 +176,9 @@ export default function App() {
                   sx={{
                     '&:hover': {
                       color: 'primary.main',
-                    }
-                  }}>
+                    },
+                  }}
+                >
                   <GitHubIcon />
                 </IconButton>
                 <IconButton
@@ -188,8 +188,9 @@ export default function App() {
                   sx={{
                     '&:hover': {
                       color: 'primary.main',
-                    }
-                  }}>
+                    },
+                  }}
+                >
                   <LinkedInIcon />
                 </IconButton>
                 <IconButton
@@ -198,8 +199,9 @@ export default function App() {
                   sx={{
                     '&:hover': {
                       color: 'primary.main',
-                    }
-                  }}>
+                    },
+                  }}
+                >
                   <EmailIcon />
                 </IconButton>
               </Stack>
@@ -254,7 +256,8 @@ export default function App() {
               flexDirection: 'column',
               justifyContent: 'space-between',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <Typography variant="h5">Theme</Typography>
             <TextField
               select
@@ -302,7 +305,7 @@ export default function App() {
               }}
             >
               {ABOUT.map((para, idx) => (
-                <Typography key={idx} variant='body1' sx={{ color: 'text.secondary' }}>
+                <Typography key={idx} variant="body1" sx={{ color: 'text.secondary' }}>
                   {para}
                 </Typography>
               ))}
@@ -337,7 +340,8 @@ export default function App() {
                           : '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                       borderColor: 'primary.main',
                     },
-                  }}>
+                  }}
+                >
                   <CardContent>
                     <Box
                       sx={{
@@ -345,8 +349,9 @@ export default function App() {
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'flex-start',
-                        gap: 1
-                      }}>
+                        gap: 1,
+                      }}
+                    >
                       {/* Experience Card Header - containing title, link and period */}
                       <Box
                         sx={{
@@ -363,19 +368,17 @@ export default function App() {
                             flexDirection: 'row',
                             justifyContent: 'center',
                             alignItems: 'center',
-                          }}>
+                          }}
+                        >
                           <Typography variant="h5" sx={{ color: 'text.primary' }}>
                             {exp.company}
                           </Typography>
-                          <IconButton
-                            href={exp.link}
-                            target='_blank'
-                            aria-label='Live link'>
+                          <IconButton href={exp.link} target="_blank" aria-label="Live link">
                             <OpenInNewIcon
                               sx={{
                                 '&:hover': {
                                   color: 'primary.main',
-                                }
+                                },
                               }}
                             />
                           </IconButton>
@@ -402,12 +405,7 @@ export default function App() {
                       </Typography>
                     ))}
                     {/* List of pills for skills related to experience */}
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      useFlexGap
-                      sx={{ flexWrap: 'wrap', py: 2 }}
-                    >
+                    <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', py: 2 }}>
                       {exp.skills.map((skill, sIdx) => (
                         <Chip label={skill} key={sIdx} color="secondary" />
                       ))}
@@ -446,7 +444,8 @@ export default function App() {
                           : '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                       borderColor: 'primary.main',
                     },
-                  }}>
+                  }}
+                >
                   <CardContent>
                     {/* Card Header - containing title, buttons to external links */}
                     <Box
@@ -455,7 +454,7 @@ export default function App() {
                         flexDirection: 'row',
                         justifyContent: 'space-between',
                         alignItems: 'flex-start',
-                        gap: 1
+                        gap: 1,
                       }}
                     >
                       <Box
@@ -466,37 +465,29 @@ export default function App() {
                           alignItems: 'center',
                         }}
                       >
-                        <Typography
-                          variant="h5"
-                          sx={{ color: 'text.primary', flexGrow: 1 }}
-                        >
+                        <Typography variant="h5" sx={{ color: 'text.primary', flexGrow: 1 }}>
                           {proj.title}
                         </Typography>
-                        {proj.liveLink &&
-                          <IconButton
-                            href={proj.liveLink}
-                            target='_blank'
-                            aria-label='Live link'>
+                        {proj.liveLink && (
+                          <IconButton href={proj.liveLink} target="_blank" aria-label="Live link">
                             <OpenInNewIcon
                               sx={{
                                 '&:hover': {
                                   color: 'primary.main',
-                                }
+                                },
                               }}
                             />
                           </IconButton>
-                        }
+                        )}
                       </Box>
-                      <IconButton
-                        href={proj.githubLink}
-                        target="_blank"
-                        aria-label='Github'>
+                      <IconButton href={proj.githubLink} target="_blank" aria-label="Github">
                         <GitHubIcon
                           sx={{
                             '&:hover': {
                               color: 'primary.main',
-                            }
-                          }} />
+                            },
+                          }}
+                        />
                       </IconButton>
                     </Box>
                     {/* Project Description */}
@@ -513,12 +504,7 @@ export default function App() {
                       </Typography>
                     ))}
                     {/* Pills of skills related to project */}
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      useFlexGap
-                      sx={{ flexWrap: 'wrap', py: 2 }}
-                    >
+                    <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', py: 2 }}>
                       {proj.skills.map((skill, sIdx) => (
                         <Chip label={skill} key={sIdx} color="secondary" />
                       ))}
